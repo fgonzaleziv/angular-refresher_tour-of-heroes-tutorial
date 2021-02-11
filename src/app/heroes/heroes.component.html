@@ -1,3 +1,16 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
+<div class="">
+<p class="h2">My Heroes</p>
+<ul class="heroes row">
+    <li *ngFor="let hero of heroList" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" class="col-4">
+        <span class="badge badge-pill badge-info">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+</div>
+<div class="row no-gutters">
+<ul class="list-group heroes-list col-lg-4 col-12">
+    <li *ngFor="let hero of heroList" [class.active]="hero === selectedHero" (click)="onSelect(hero)" class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="badge badge-pill badge-dark">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
