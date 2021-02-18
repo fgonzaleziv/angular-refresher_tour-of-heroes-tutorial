@@ -1,16 +1,17 @@
 <div class="">
-<p class="h2">My Heroes</p>
-<ul class="heroes row">
-    <li *ngFor="let hero of heroList" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" class="col-4">
-        <span class="badge badge-pill badge-info">{{hero.id}}</span> {{hero.name}}
-    </li>
-</ul>
+    <p class="h3">My Heroes</p>
 </div>
 <div class="row no-gutters">
-<ul class="list-group heroes-list col-lg-4 col-12">
-    <li *ngFor="let hero of heroList" [class.active]="hero === selectedHero" (click)="onSelect(hero)" class="list-group-item d-flex justify-content-between align-items-center">
-        <span class="badge badge-pill badge-dark">{{hero.id}}</span> {{hero.name}}
-    </li>
-</ul>
+    <ul class="list-group heroes-list col-lg-4 col-12">
+        <!-- <li *ngFor="let hero of heroList" [class.active]="hero === selectedHero" (click)="onSelect(hero)"
+            class="list-group-item d-flex justify-content-between align-items-center pointer"> -->
+        <li *ngFor="let hero of heroList"
+            class="list-group-item d-flex justify-content-between align-items-center pointer"
+            routerLink="/detail/{{hero.id}}">
+            <a routerLink="/detail/{{hero.id}}">
+                <span class="badge badge-pill badge-dark">{{hero.id}}</span>
+                {{hero.name}}</a>
+        </li>
+    </ul>
 </div>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->

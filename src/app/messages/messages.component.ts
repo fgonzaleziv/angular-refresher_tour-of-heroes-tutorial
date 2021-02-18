@@ -8,7 +8,7 @@ import { MessageService} from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { } //public to bind into template
+  constructor(public messageService: MessageService) { } // public to bind into template
 
   ngOnInit(): void {
   }
